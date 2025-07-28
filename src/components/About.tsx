@@ -101,6 +101,23 @@ const About = () => {
         }
       );
 
+      // Experience animation
+      gsap.fromTo(".experience-item",
+        { opacity: 0, x: -50, filter: "blur(5px)" },
+        {
+          opacity: 1,
+          x: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".experience-section",
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -168,6 +185,53 @@ const About = () => {
                     </div>
                   );
                 })}
+              </div>
+            </div>
+
+            {/* Work Experience */}
+            <div className="experience-section">
+              <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">
+                Experience
+              </h3>
+              <div className="space-y-6">
+                <div className="experience-item glass-card p-6 hover:scale-105 transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                      <Code size={24} className="text-white" />
+                    </div>
+                    <div className="flex-grow">
+                      <h4 className="text-xl font-semibold text-foreground mb-1">
+                        Frontend Developer
+                      </h4>
+                      <p className="text-primary font-medium mb-2">
+                        Parsh Technologies • Internship
+                      </p>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-muted-foreground mb-3">
+                        <span>Jun 2025 - Present • 2 mos</span>
+                        <span>Remote</span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Developing responsive web applications using modern frontend technologies. 
+                        Collaborating with design teams to implement user interfaces that enhance 
+                        user experience and drive engagement.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                          React
+                        </span>
+                        <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                          JavaScript
+                        </span>
+                        <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                          CSS3
+                        </span>
+                        <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                          HTML5
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
