@@ -128,6 +128,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     
     // Simple validation
     if (!formData.name || !formData.email || !formData.message) {
@@ -138,20 +139,23 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    gsap.to(".submit-btn", {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      onComplete: () => {
-        toast({
-          title: "Message sent successfully!",
-          description: "I'll get back to you soon."
-        });
-        setFormData({ name: '', email: '', message: '' });
-      }
-    });
+    // Simulate form submission with visual feedback
+    const submitButton = document.querySelector('.submit-btn') as HTMLElement;
+    if (submitButton) {
+      gsap.to(submitButton, {
+        scale: 0.95,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1,
+        onComplete: () => {
+          toast({
+            title: "Message sent successfully!",
+            description: "I'll get back to you soon."
+          });
+          setFormData({ name: '', email: '', message: '' });
+        }
+      });
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -220,6 +224,10 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 className="submit-btn w-full bg-gradient-primary hover:scale-105 transition-transform duration-300 text-lg py-6 pulse-glow"
+                onClick={(e) => {
+                  // Let the form handle submission naturally
+                  console.log('Submit button clicked');
+                }}
               >
                 Send Message
               </Button>
