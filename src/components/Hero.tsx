@@ -105,25 +105,15 @@ const Hero = () => {
         
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button 
-            type="button"
             size="lg" 
             className="bg-gradient-primary hover:scale-105 transition-transform duration-300 px-8 py-6 text-lg font-semibold pulse-glow"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
           >
             Hire Me
           </Button>
           <Button 
-            type="button"
             variant="outline" 
             size="lg"
             className="glass border-primary/30 hover:border-primary/60 px-8 py-6 text-lg"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-            }}
           >
             View Work
           </Button>

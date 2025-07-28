@@ -137,30 +137,11 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-2">
-                    <Button 
-                      type="button"
-                      size="sm" 
-                      className="bg-primary/80 hover:bg-primary"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.open(project.liveUrl, '_blank');
-                      }}
-                    >
+                    <Button size="sm" className="bg-primary/80 hover:bg-primary">
                       <ArrowSquareOut size={16} className="mr-1" />
                       Live
                     </Button>
-                    <Button 
-                      type="button"
-                      size="sm" 
-                      variant="outline" 
-                      className="border-primary/30"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.open(project.codeUrl, '_blank');
-                      }}
-                    >
+                    <Button size="sm" variant="outline" className="border-primary/30">
                       <Code size={16} className="mr-1" />
                       Code
                     </Button>
